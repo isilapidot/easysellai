@@ -1,0 +1,315 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.sidebar {
+  padding: 20px;
+  background-color: #1C1831;
+  color: white;
+  position: fixed;
+  height: 100%;
+  width: 22.5%;  /* Add this line */
+  overflow: auto;
+  border-radius: 10px;
+  right: 0;  /* Add this line to position the sidebar at the right side of the page */
+}
+
+.minimizeButton {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.toggleButton {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.status {
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabButton {
+  flex: 1;
+  margin: 10px;
+  border: none;
+  background-color: #1C1831;
+  color: #0071FD;
+  transition: border-bottom 0.2s;
+}
+
+.tabButton:hover {
+  border-bottom: 2px solid #0071FD;
+}
+
+.tabButton.active {
+  border-bottom: 2px solid #0071FD;
+}
+
+.tabIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.chatPanel,
+.calendarPanel {
+  margin-top: 10px;
+}
+
+.label,
+.message {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.switchContainer {
+  text-align: left;
+}
+
+.title {
+  font-size: 28px !important;
+  font-weight: 50;
+  text-align: center;
+  color: #FFF;
+  padding: 10px 0;
+}
+
+.label1 {
+  color: #FFF !important;
+  font-size: 15px;
+  font-style: normal;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dropdown,
+.textInput {
+  color: #FFF;
+  appearance: none;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #333;
+}
+
+.inputGroup {
+  margin-bottom: 15px;
+}
+
+.inputWithLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.dropdown {
+  appearance: none;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  color: #fff;  /* white text for dark background */
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,10'/></svg>") no-repeat;
+  background-position: 95% 50%;
+  background-size: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #FFF;
+  background-color: #0071FD; /* color of the button */
+  border: 1px solid #333;
+  cursor: pointer;
+  border-radius: 20px; /* roundness of the button border */
+}
+
+.authorizationStatus {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #FFF;
+  background-color: #FF0000; /* color of the button */
+  border: 1px solid #333;
+  cursor: pointer;
+  border-radius: 20px; /* roundness of the button border */
+  font-size: 13px; /* adjust as needed */
+  font-weight: 400; /* adjust as needed, make sure your chosen font supports this weight */
+}
+
+.toggleAndAuth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.beta {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  font-size: 10px !important;
+  color: gray;
+}
+
+.feedbackButton {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  color: #FFF;
+  background-color: #0071FD; /* color of the button */
+  border: 1px solid #333;
+  cursor: pointer;
+  margin: 20px 0px;
+  border-radius: 20px; /* roundness of the button border */
+  font-size: 15px;
+}
+
+.infoIcon {
+  width: 18px;
+  height: 18px;
+  margin-left: 7px;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  font-size: 16px !important;
+  visibility: hidden;
+  width: 180px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 100%; /* Position the tooltip below the text */
+  left: 50%;
+  margin-left: -60px; /* Use half of the width to center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Tooltip container */
+.tooltipLeft {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltipLeft .tooltiptext {
+  font-size: 16px !important;
+  visibility: hidden;
+  width: 220px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;  /* Center the tooltip text */
+  transform: translateX(-100%);  /* Shift the tooltip text to the left by its own width */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipLeft:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.updateMessage {
+  font-size: 16px;
+  color: #fff;
+  margin: 10px 0;
+}
+
+.updateMessage a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #0071FD;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
